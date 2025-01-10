@@ -8,7 +8,7 @@ from Utilities.configuration import *
 @given('the Book details which needs to be added to Library')
 def step_impl(context):
     context.url = getConfig()['API']['endpoint'] + ApiResources.addBook
-    context.payLoad = addBodypayload("FYJCS", 129668);
+    context.payLoad = addBodypayload("BOURNMOUTH", 129668);
 
 
 @when('we execute the AddBook Post API method')
@@ -30,10 +30,12 @@ def step_impl(context, isbn, aisle):
     context.url = getConfig()['API']['endpoint'] + ApiResources.addBook
     context.payLoad = addBodypayload(isbn, aisle);
 
+
 @given('I have github auth credentails')
 def step_impl(context):
     context.se = requests.session()
     context.se.auth = auth = ("karanshetty1441994@gmail.com", getPassword())
+
 
 @when(u'I hit getRepo API of github')
 def step_impl(context):
@@ -41,7 +43,6 @@ def step_impl(context):
 
 
 @then(u'status code of response should be {statusCode:d}')
-def step_impl(context,statusCode):
+def step_impl(context, statusCode):
     print(context.response.status_code)
-    assert context.response.status_code==200
-
+    assert context.response.status_code == statusCode

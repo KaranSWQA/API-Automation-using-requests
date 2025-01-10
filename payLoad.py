@@ -1,7 +1,7 @@
 from Utilities.configuration import getQuery
 
 
-def addBodypayload(isbn,aisle):
+def addBodypayload(isbn, aisle):
     body = {
 
         "name": "Learn Appium Automation with Java",
@@ -11,11 +11,12 @@ def addBodypayload(isbn,aisle):
     }
     return body
 
+
 def buildPayLoadFromDB(query):
-    addBody={}
-    tp=getQuery(query)
-    addBody['name']=tp[0]
-    addBody['isbn']=tp[1]
-    addBody['aisle']=tp[2]
-    addBody['author']=tp[3]
+    addBody = {}
+    tp = getQuery(query)
+    addBody['name'] = tp[0]
+    addBody['isbn'] = tp[1]
+    addBody['aisle'] = tp[2]
+    addBody['author'] = tp[3]
     return addBody
